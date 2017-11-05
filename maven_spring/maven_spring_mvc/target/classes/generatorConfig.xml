@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <context id="testTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- �Ƿ�ȥ���Զ���ɵ�ע�� true���� �� false:�� -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--��ݿ����ӵ���Ϣ�����ࡢ���ӵ�ַ���û������� -->
+      <!--  <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.0.51:3306/manager_center" userId="root"
+                        password="$root@ipaynow_test"/>-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.0.51:3306/merchant_center" userId="root"
+                        password="$root@ipaynow_test"/>
+        <!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+            connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg"
+            userId="yycg"
+            password="yycg">
+        </jdbcConnection> -->
+
+        <!-- Ĭ��false����JDBC DECIMAL �� NUMERIC ���ͽ���Ϊ Integer��Ϊ trueʱ��JDBC DECIMAL ��
+            NUMERIC ���ͽ���Ϊjava.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject:���PO���λ�� -->
+        <javaModelGenerator targetPackage="com.ipaynow.domain" targetProject="E:\work\maven_spring\maven_spring_mvc\src\main\java">
+            <!-- enableSubPackages:�Ƿ���schema��Ϊ��ĺ�׺ -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- ����ݿⷵ�ص�ֵ������ǰ��Ŀո� -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- targetProject:mapperӳ���ļ���ɵ�λ�� -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="E:\work\maven_spring\maven_spring_mvc\src\main\resources\com.ipaynow.mapper">
+            <!-- enableSubPackages:�Ƿ���schema��Ϊ��ĺ�׺ -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!-- targetPackage��mapper�ӿ���ɵ�λ�� -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.ipaynow.mapper"
+                             targetProject="E:\work\maven_spring\maven_spring_mvc\src\main\java">
+            <!-- enableSubPackages:�Ƿ���schema��Ϊ��ĺ�׺ -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        <!-- ָ����ݿ�� -->
+       <!-- <table schema="" tableName="password_history" domainObjectName="PasswordHistory">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>-->
+        <table schema="" tableName="user" domainObjectName="User">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+
+        <!--<table tableName="orders"></table>
+        <table tableName="orderdetail"></table>
+        <table tableName="user"></table>-->
+        <!-- <table schema="" tableName="sys_user"></table>
+        <table schema="" tableName="sys_role"></table>
+        <table schema="" tableName="sys_permission"></table>
+        <table schema="" tableName="sys_user_role"></table>
+        <table schema="" tableName="sys_role_permission"></table> -->
+
+        <!-- ��Щ����ֶ���Ҫָ��java����
+         <table schema="" tableName="">
+            <columnOverride column="" javaType="" />
+        </table> -->
+    </context>
+</generatorConfiguration>
